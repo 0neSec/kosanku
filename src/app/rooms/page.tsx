@@ -53,6 +53,14 @@ const formatPrice = (price: number): string => {
   }).format(price);
 };
 
+// Helper function to create URL-friendly slug
+const createSlug = (name: string): string => {
+  return name
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+};
+
 const RoomsPage = () => {
   const [priceFilter, setPriceFilter] = useState('all');
   const [capacityFilter, setCapacityFilter] = useState('all');
@@ -178,7 +186,7 @@ const RoomsPage = () => {
 
                 {room.availability ? (
                   <Link
-                    href={`/booking/${room.id}`}
+                    href={`/booking/${createSlug(room.name)}`}
                     className="block text-center bg-[#3498db] text-white px-4 py-2 rounded-full hover:bg-[#2980b9] transition-colors"
                   >
                     Pesan Sekarang

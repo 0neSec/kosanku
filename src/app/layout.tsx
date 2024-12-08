@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { UnauthorizedModal } from "@/components/modal/UnauthorizedModal";
 
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
 
       >
         {children}
+        <UnauthorizedModal />
       </body>
     </html>
   );
